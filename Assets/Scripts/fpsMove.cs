@@ -37,6 +37,7 @@ public class fpsMove : MonoBehaviour
         move.x = speed * forward;
         move.z = speed * strafe ;
 
+        //actually move the character
         cc.Move(transform.TransformDirection(move * Time.deltaTime));
     }
 }
