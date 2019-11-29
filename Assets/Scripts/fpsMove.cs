@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fpsMove : MonoBehaviour
+public class FPSMove : MonoBehaviour
 {
     public float speed = 10;
     public float jumpHeight = 5;
@@ -11,21 +11,30 @@ public class fpsMove : MonoBehaviour
     private CharacterController cc;
 
     private Vector3 move = Vector3.zero;
+
+    public int NumJumps = 3; 
+    private int multiJump = 0; // allow for double, triple, whatever jumps
     
     // Start is called before the first frame update
     void Start()
     {
         cc = GetComponent<CharacterController>();
-
+        // multiJump = NumJumps;
     }
 
     // Update is called once per frame
     void Update()
     {
         //jumping code
-        if (Input.GetKeyDown(KeyCode.Space) && cc.isGrounded)
-        {
-            move.y = jumpHeight;           
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (cc.isGrounded) {
+                move.y = jumpHeight;
+                multiJump = NumJumps - 1;
+            } else if (multiJump > 0) {
+                move.y = jumpHeight;
+                multiJump--;
+            }
         }
         //add gravity
         move.y -= gravity * Time.deltaTime;
@@ -34,8 +43,8 @@ public class fpsMove : MonoBehaviour
         float forward = Input.GetAxis("Vertical");
 
         //moving front and back
-        move.x = speed * forward;
-        move.z = speed * strafe ;
+        move.z = speed * forward;
+        move.x = speed * strafe;
 
         //actually move the character
         cc.Move(transform.TransformDirection(move * Time.deltaTime));
