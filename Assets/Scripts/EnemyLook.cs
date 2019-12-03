@@ -14,6 +14,8 @@ public class EnemyLook : MonoBehaviour
 
     private int destPoint = 0;
     NavMeshAgent agent;
+
+    Light flashlight;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,8 @@ public class EnemyLook : MonoBehaviour
         agent.autoBraking = false;
 
         GoToNextPoint();
+
+        flashlight = GetComponentInChildren<Light>();
     }
 
     //patrol logic
@@ -42,8 +46,8 @@ public class EnemyLook : MonoBehaviour
         float dist = Vector3.Distance(player.position, transform.position);
         Vector3 targetDirection = player.position - transform.position;
         float viewAngle = Vector3.Angle(targetDirection, transform.forward);
-        //if player is visible to agent
-        //maybe if the player makes sound or gets in close but not too close they turn and face player?
+        // if player is visible to agent
+        // maybe if the player makes sound or gets in close but not too close they turn and face player?
         if ((viewAngle >= -60 && viewAngle <= 60) && dist <= 10f)
         {
             agent.SetDestination(player.position);
@@ -53,11 +57,15 @@ public class EnemyLook : MonoBehaviour
             {
                 face(player);
             }
+
+            flashlight.color = Color.red; // might be cool to make it such that the player is "shot" or something only when the flashlight hits them
         }
         else if(!agent.pathPending && agent.remainingDistance < .5f)
         {
-            //if player isnt there
+            // if player isnt there
             GoToNextPoint();
+
+            flashlight.color = Color.green;
         }
     }
 
