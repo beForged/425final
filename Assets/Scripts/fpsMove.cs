@@ -48,4 +48,19 @@ public class FPSMove : MonoBehaviour {
         // actually move the player
         cc.Move(transform.TransformDirection(move * Time.deltaTime));
     }
+
+    public void SideCollision(int side) {
+        // detected left/right wall jump
+        // moving left is < 0, and left side returns (-1) so move.x * side > 0
+        // moving right is > 0, and right side returns (1) so move.x * side > 0
+        // else, no beans
+        // Debug.Log(move.x * side);
+        
+        if (move.x * side > 0) {
+            multiJump = NumJumps;
+        }
+
+        // do this version if you are okay with people multi-jumping up a single wall
+        // multiJump = NumJumps;
+    }
 }
