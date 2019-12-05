@@ -1557,7 +1557,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2379,13 +2379,13 @@ GameObject:
   - component: {fileID: 1156407053}
   - component: {fileID: 1156407052}
   - component: {fileID: 1156407051}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1156407050
 Transform:
   m_ObjectHideFlags: 0
@@ -3094,10 +3094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b389df47214e9247b40c2a4cca10b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 10
   jumpHeight: 5
-  gravity: 10
-  NumJumps: 1
+  gravity: 20
+  NumJumps: 3
 --- !u!4 &1888018476
 Transform:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPSMove : MonoBehaviour {
+public class fpsMove : MonoBehaviour {
     public float speed = 10;
     public float jumpHeight = 5;
     public float gravity = 20f;
