@@ -8,6 +8,7 @@ TagManager:
   - Walls
   - Ceiling
   - AllowWallJump
+  - collectible
   layers:
   - Default
   - TransparentFX

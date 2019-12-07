@@ -63,4 +63,12 @@ public class fpsMove : MonoBehaviour {
         // do this version if you are okay with people multi-jumping up a single wall
         // multiJump = NumJumps;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "collectible")
+        {
+
+        }
+    }
 }
