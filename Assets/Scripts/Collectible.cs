@@ -8,7 +8,7 @@ public class Collectible : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isCollected = FindObjectOfType(typeof(GameManager))
+        isCollected = FindObjectOfType(typeof(GameManager));
         if (isCollected)
         {
             Destroy(this);
