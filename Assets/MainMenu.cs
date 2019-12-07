@@ -14,6 +14,12 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(LoadAsync(sceneName));
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
     IEnumerator LoadAsync(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
