@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class fpsMove : MonoBehaviour {
     public float speed = 10;
@@ -64,11 +65,15 @@ public class fpsMove : MonoBehaviour {
         // multiJump = NumJumps;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "collectible")
-        {
-
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "collectible") {
+            other.gameObject.GetComponent<Collectible>().collect();
+            StartCoroutine("ResetToMenu");
         }
     }
+
+    IEnumerator ResetToMenu() {
+		yield return new WaitForSeconds(2); // todo any pause or whatever?
+		SceneManager.LoadScene(0); // todo is 0 always the main menu?
+	}
 }
