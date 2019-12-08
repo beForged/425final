@@ -14,14 +14,19 @@ public class MainMenu : MonoBehaviour
 
     static Animator anim;
 
+    private GameManager gm;
+
     private void Start()
     {
         anim = cam.GetComponent<Animator>();
+        gm = (GameManager) FindObjectOfType(typeof(GameManager));
+        gm.snapSwitch("Menu", 0.01f);
     }
     // Start is called before the first frame update
     public void Play(string sceneName)
     {
         StartCoroutine(LoadAsync(sceneName));
+        gm.snapSwitch(sceneName, 3.0f);
     }
 
     public void QuitGame()
