@@ -14,7 +14,10 @@ public class fpsMove : MonoBehaviour {
 
     public int NumJumps = 3; 
     private int multiJump = 0; // allow for double, triple, whatever jumps
-    
+    private Color surfaceColor;
+    //private LayerMask layerMask;
+    private  float brightness1;
+
     // Start is called before the first frame update
     void Start() {
         cc = GetComponent<CharacterController>();
@@ -47,7 +50,8 @@ public class fpsMove : MonoBehaviour {
         move.x = speed * strafe;
 
         // actually move the player
-        cc.Move(transform.TransformDirection(move * Time.deltaTime));
+        //float light = lightlevel();
+        cc.Move(transform.TransformDirection( move * Time.deltaTime));
     }
 
     public void SideCollision(int side) {
@@ -66,14 +70,23 @@ public class fpsMove : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "collectible") {
+        if (other.gameObject.CompareTag("collectible")) {
             other.gameObject.GetComponent<Collectible>().collect();
-            StartCoroutine("ResetToMenu");
+            StartCoroutine(ResetToMenu(1f));
+        }
+        if(other.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log("enemy collider enter");
+            
+            StartCoroutine(ResetToMenu(.1f));
         }
     }
 
-    IEnumerator ResetToMenu() {
-		yield return new WaitForSeconds(2); // todo any pause or whatever?
-		SceneManager.LoadScene(0); // todo is 0 always the main menu?
+    IEnumerator ResetToMenu(float timeToWait) {
+		yield return new WaitForSeconds(timeToWait); // todo any pause or whatever?
+        //StartCoroutine(GameObject.FindObjectOfType<Fading>().FadeAndLoadScene(Fading.FadeDirection.Out, "Main"));
+		SceneManager.LoadScene(0); // todo is 0 always the main menu? yes lets do that
 	}
+
+       
 }
