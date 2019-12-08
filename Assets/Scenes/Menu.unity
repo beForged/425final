@@ -1120,9 +1120,9 @@ MonoBehaviour:
     and Minh Nguyen. This is a first-person platformer, similar to Clustertruck, with
     a black/white style and glowy neon, think Tron, but better. The goal is to collect
     everything as fast as possible without dying. Death happens from fall damage,
-    or from enemies. The environment will be splitted into 2 type: light and dark.
-    Player must traverse through light zone slowly. On the other hand, dark zone can
-    be traversed faster, but requires more skill to get through.'
+    or from enemies. The environment will be split into 2 types: light and dark. Player
+    will travel through light zones slowly. On the other hand, dark zones can be traversed
+    faster, but requires more skill to get through.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
