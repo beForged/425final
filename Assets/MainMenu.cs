@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject settingsCanvas;
     public GameObject gameTitle;
     public GameObject cam;
+    public GameObject aboutCanvas;
 
     static Animator anim;
 
@@ -28,9 +29,16 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void About()
+    {
+        aboutCanvas.SetActive(true);
+    }
+
     public void Settings()
     {
+        aboutCanvas.SetActive(false);
         anim.SetTrigger("SettingsButton");
+        aboutCanvas.SetActive(false);
 
     }
 
