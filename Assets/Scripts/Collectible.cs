@@ -36,8 +36,9 @@ public class Collectible : MonoBehaviour {
 
     void shade() {
         // todo
-        mat.DisableKeyword("_EMISSION");
-        GetComponentInChildren<Light>().enabled = false;
+        //mat.DisableKeyword("_EMISSION");
+        //GetComponentInChildren<Light>().enabled = false;
+        mat.SetColor("_EmissionColor", mat.color * .5f);
     }
 
     public void collect() {
