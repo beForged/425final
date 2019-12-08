@@ -7,7 +7,16 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider slider;
+    public GameObject settingsCanvas;
+    public GameObject gameTitle;
+    public GameObject cam;
 
+    static Animator anim;
+
+    private void Start()
+    {
+        anim = cam.GetComponent<Animator>();
+    }
     // Start is called before the first frame update
     public void Play(string sceneName)
     {
@@ -19,6 +28,16 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Settings()
+    {
+        anim.SetTrigger("SettingsButton");
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+        {
+            gameTitle.SetActive(false);
+            settingsCanvas.SetActive(true);
+        }
+
+    }
 
     IEnumerator LoadAsync(string sceneName)
     {
