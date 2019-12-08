@@ -37,6 +37,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadAsync(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+        this.gameObject.SetActive(false);
         loadingScreen.SetActive(true);
         while (!operation.isDone)
         {
