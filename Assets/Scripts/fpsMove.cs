@@ -12,6 +12,8 @@ public class fpsMove : MonoBehaviour {
 
     private Vector3 move = Vector3.zero;
 
+    private float lightlevel = 1;
+
     public int NumJumps = 3; 
     private int multiJump = 0; // allow for double, triple, whatever jumps
     private Color surfaceColor;
@@ -51,7 +53,7 @@ public class fpsMove : MonoBehaviour {
 
         // actually move the player
         //float light = lightlevel();
-        cc.Move(transform.TransformDirection( move * Time.deltaTime));
+        cc.Move(transform.TransformDirection(lightlevel * move * Time.deltaTime));
     }
 
     public void SideCollision(int side) {
@@ -79,6 +81,15 @@ public class fpsMove : MonoBehaviour {
             Debug.Log("enemy collider enter");
             
             StartCoroutine(ResetToMenu(.1f));
+        }
+
+        if (other.gameObject.CompareTag("lamp"))
+        {
+            lightlevel = .5f;
+        }
+        else
+        {
+            lightlevel = 1;
         }
     }
 
