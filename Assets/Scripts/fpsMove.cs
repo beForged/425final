@@ -87,7 +87,10 @@ public class fpsMove : MonoBehaviour {
         {
             lightlevel = .5f;
         }
-        else
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("lamp"))
         {
             lightlevel = 1;
         }
