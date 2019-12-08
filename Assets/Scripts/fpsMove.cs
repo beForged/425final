@@ -76,6 +76,7 @@ public class fpsMove : MonoBehaviour {
             other.gameObject.GetComponent<Collectible>().collect();
             StartCoroutine(ResetToMenu(1f));
         }
+
         if(other.gameObject.CompareTag("enemy"))
         {
             Debug.Log("enemy collider enter");
@@ -83,6 +84,7 @@ public class fpsMove : MonoBehaviour {
             StartCoroutine(ResetToMenu(.1f));
         }
 
+        //when entering lightened area
         if (other.gameObject.CompareTag("lamp"))
         {
             lightlevel = .5f;
@@ -90,6 +92,7 @@ public class fpsMove : MonoBehaviour {
     }
     private void OnTriggerExit(Collider other)
     {
+        //when leaving lamp collider make speed correct again
         if (other.gameObject.CompareTag("lamp"))
         {
             lightlevel = 1;

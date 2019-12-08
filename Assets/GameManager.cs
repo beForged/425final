@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public bool speedrun = false;
     public int[] collectibles = new int[5];
     void Awake() {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
