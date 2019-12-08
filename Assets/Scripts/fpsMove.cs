@@ -79,7 +79,7 @@ public class fpsMove : MonoBehaviour {
 
         if(other.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("enemy collider enter");
+            //Debug.Log("enemy collider enter");
             
             StartCoroutine(ResetToMenu(.1f));
         }
