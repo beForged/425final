@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour {
     public bool speedrun = false;
     public int[] collectibles = new int[5];
 
-    public AudioMixerSnapshot mainMenu;
-    public AudioMixerSnapshot level01;
+    public AudioMixer mixer;
 
     void Awake() {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
@@ -22,10 +21,10 @@ public class GameManager : MonoBehaviour {
     public void snapSwitch(string sceneName, float time) {
         switch (sceneName) {
             case "Menu":
-                mainMenu.TransitionTo(time);
+                mixer.FindSnapshot("menu").TransitionTo(time);
                 break;
             case "Main":
-                level01.TransitionTo(time);
+                mixer.FindSnapshot("level01").TransitionTo(time);
                 break;
             default:
                 break;

@@ -5294,8 +5294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedrun: 0
   collectibles: 0000000000000000000000000000000000000000
-  mainMenu: {fileID: 24500006, guid: a75067965155d4d41b44aa2c13f0970f, type: 2}
-  level01: {fileID: 4874175213536783079, guid: a75067965155d4d41b44aa2c13f0970f, type: 2}
+  mixer: {fileID: 24100000, guid: a75067965155d4d41b44aa2c13f0970f, type: 2}
 --- !u!1 &1856276010
 GameObject:
   m_ObjectHideFlags: 0
