@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5621676613688834186}
   - component: {fileID: 5621676613688834185}
   - component: {fileID: 5621676613688834184}
-  - component: {fileID: 5621676613688834187}
   - component: {fileID: 4745578199992857180}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5621676613688834187
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5621676613688834181}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &4745578199992857180
 Light:
   m_ObjectHideFlags: 0
@@ -103,8 +89,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.9811321, g: 0, b: 0, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -163,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5621676614150969413}
   - component: {fileID: 7825622244541099484}
+  - component: {fileID: 2645029130525212710}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: collectible
@@ -178,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5621676614150969412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.617237, y: -52.466976, z: 34.193726}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5621676613688834186}
@@ -197,3 +184,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92afcb98d113cd438615cc7ca3bbde2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+--- !u!135 &2645029130525212710
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621676614150969412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
