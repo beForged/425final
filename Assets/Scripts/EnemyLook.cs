@@ -6,17 +6,22 @@ using UnityEngine.AI;
 public class EnemyLook : MonoBehaviour
 {
 
-    //https://docs.unity3d.com/Manual/nav-AgentPatrol.html
-    //also have logic for chasing after player (aggro radius)
-    public float gazeRadius = 1; //radians?
-    public Transform[] points;
-    public Transform player;
+    // https://docs.unity3d.com/Manual/nav-AgentPatrol.html
+    // also have logic for chasing after player (aggro radius)
+    public float gazeRadius = 1; // radians?
+    private Transform points;
+    private Transform player;
 
     private int destPoint = 0;
     NavMeshAgent agent;
 
     Light flashlight;
     
+    void Awake() {
+        points = transform.parent.Find("PatrolPoints");
+        player = GameObject.FindWithTag("Player").transform;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +38,12 @@ public class EnemyLook : MonoBehaviour
     void GoToNextPoint()
     {
         //no points to patrol between
-        if (points.Length == 0)
+        if (points.childCount == 0)
         {
             return;
         }
-        agent.destination = points[destPoint].position;
-        destPoint = (destPoint + 1) % points.Length;
+        agent.destination = points.GetChild(destPoint).position;
+        destPoint = (destPoint + 1) % points.childCount;
     }
     // Update is called once per frame
     void Update()
