@@ -20,10 +20,15 @@ public class fpsMove : MonoBehaviour {
     //private LayerMask layerMask;
     private  float brightness1;
 
+    private AudioSource feet;
+    public AudioClip footsteps;
+    public AudioClip fasterFootsteps;
+
     // Start is called before the first frame update
     void Start() {
         cc = GetComponent<CharacterController>();
         // multiJump = NumJumps;
+        feet = GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,9 +55,21 @@ public class fpsMove : MonoBehaviour {
         // moving WASD
         move.z = speed * forward;
         move.x = speed * strafe;
+        // Debug.Log(feet.isPlaying);
+        if (!feet.isPlaying && cc.isGrounded && (move.x != 0 || move.z != 0)) {
+            feet.Play();
+        } else if (!cc.isGrounded || (move.x == 0 && move.z == 0)) {
+            feet.Pause();
+        }
+        // fast?
+        if (lightlevel == 1) {
+            feet.clip = fasterFootsteps;
+        } else {
+            feet.clip = footsteps;
+        }
 
         // actually move the player
-        //float light = lightlevel();
+        // float light = lightlevel();
         cc.Move(transform.TransformDirection(lightlevel * move * Time.deltaTime));
     }
 
