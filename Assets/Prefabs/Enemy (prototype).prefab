@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c0c58904ba1ac4eb42a3aa193eb766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gazeRadius: 3
-  player: {fileID: 0}
+  gazeRadius: 3.5
+  origSpeed: 5
+  chaseSpeed: 7.5
 --- !u!195 &7548916560300954680
 NavMeshAgent:
   m_ObjectHideFlags: 0
