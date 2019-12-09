@@ -10,27 +10,26 @@ public class timer : MonoBehaviour
 {
     DateTime startTime;
     public TimeSpan timeElapsed { get; private set; }
+    public GameObject CanvasTimer;
     GameManager gm;
-    Text t;
+    public Text t;
+
     // Start is called before the first frame update
     void Start()
     {
-        t = this.gameObject.GetComponent<Text>();
-        gm = (GameManager) FindObjectOfType(typeof(GameManager)); // I think returns the script
-        if (gm.speedrun) {
-            startTime = DateTime.Now;
-        }
-        else
+        gm = (GameManager)FindObjectOfType(typeof(GameManager));
+        if (gm.speedrun)
         {
-            t.enabled = false;
+            CanvasTimer.SetActive(true);
         }
+        startTime = DateTime.Now;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         this.timeElapsed = DateTime.Now - startTime;
-
     }
     private void OnGUI()
     {

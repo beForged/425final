@@ -58,11 +58,11 @@ AudioMixerController:
   - guid: 96382fed0c58863409913675e10babf4
     name: MyExposedParam 3
   - guid: c0e679802252ec0428b310acb5fd1981
-    name: MyExposedParam 2
+    name: BGM
   - guid: 0de6ef7e77d340d4c83f4147c5f6ea2d
-    name: MyExposedParam
+    name: SFX
   - guid: 87c8419c0171da4448c556901201355a
-    name: MyExposedParam 1
+    name: Menu
   m_AudioMixerGroupViews:
   - guids:
     - 76298d1658eeb764a82c35cfc30654e7
@@ -71,7 +71,7 @@ AudioMixerController:
     - b9c7e3bd7d8548a4dbf6631aaf2d4762
     name: View
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 4874175213536783079}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

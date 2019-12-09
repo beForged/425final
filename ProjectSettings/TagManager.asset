@@ -11,6 +11,7 @@ TagManager:
   - collectible
   - enemy
   - lamp
+  - Timer
   layers:
   - Default
   - TransparentFX
