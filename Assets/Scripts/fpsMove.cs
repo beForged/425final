@@ -117,9 +117,10 @@ public class fpsMove : MonoBehaviour {
     }
 
     IEnumerator ResetToMenu(float timeToWait) {
+        ((GameManager) FindObjectOfType(typeof(GameManager))).snapSwitch("Menu", timeToWait);
 		yield return new WaitForSeconds(timeToWait); // todo any pause or whatever?
         //StartCoroutine(GameObject.FindObjectOfType<Fading>().FadeAndLoadScene(Fading.FadeDirection.Out, "Main"));
-		SceneManager.LoadScene(0); // todo is 0 always the main menu? yes lets do that
+		SceneManager.LoadScene("Menu");
 	}
 
        
