@@ -19,7 +19,7 @@ public class GameplayMenuScript : MonoBehaviour
     void Start()
     {
         gm = (GameManager)FindObjectOfType(typeof(GameManager));
-        
+        timerNo();
     }
 
     public void timerYes()
