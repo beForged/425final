@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: af171e0352dcaac4fb5b9ab5738aa867, type: 2}
 --- !u!1 &25684684
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1076683663d2acb48bd97f8b6a46be7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioComponent: {fileID: 0}
+  audioComponent: {fileID: 24100000, guid: a75067965155d4d41b44aa2c13f0970f, type: 2}
 --- !u!1 &187777790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,8 +3017,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 267047568}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -5675,8 +5675,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 933690182}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

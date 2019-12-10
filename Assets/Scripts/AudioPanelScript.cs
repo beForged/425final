@@ -9,12 +9,18 @@ public class AudioPanelScript : MonoBehaviour
 
     public void SetSFX(float volume)
     {
-        audioComponent.SetFloat("SFX", volume);
+        float db = ftodb(volume);
+        audioComponent.SetFloat("SFX", db);
     }
 
     public void SetBGM(float volume)
     {
-        audioComponent.SetFloat("Menu", volume);
-        audioComponent.SetFloat("BGM", volume);
+        float db = ftodb(volume);
+        audioComponent.SetFloat("Menu", db);
+        audioComponent.SetFloat("BGM", db);
+    }
+
+    private float ftodb(float volume) {
+        return 20 * Mathf.Log(volume, 10);
     }
 }

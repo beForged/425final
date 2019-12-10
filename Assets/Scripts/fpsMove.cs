@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class fpsMove : MonoBehaviour {
     public float speed = 10;
@@ -33,6 +36,11 @@ public class fpsMove : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(ResetToMenu(.3f));
+        }
         // jumping code
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (cc.isGrounded) {
@@ -91,6 +99,8 @@ public class fpsMove : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("collectible")) {
             other.gameObject.GetComponent<Collectible>().collect();
+            int id = other.gameObject.GetComponent<Collectible>().id;
+            saveTime(id);
             StartCoroutine(ResetToMenu(1f));
         }
 
@@ -117,10 +127,25 @@ public class fpsMove : MonoBehaviour {
     }
 
     IEnumerator ResetToMenu(float timeToWait) {
+        ((GameManager) FindObjectOfType(typeof(GameManager))).snapSwitch("Menu", timeToWait);
 		yield return new WaitForSeconds(timeToWait); // todo any pause or whatever?
         //StartCoroutine(GameObject.FindObjectOfType<Fading>().FadeAndLoadScene(Fading.FadeDirection.Out, "Main"));
-		SceneManager.LoadScene(0); // todo is 0 always the main menu? yes lets do that
+        Cursor.visible = true;
+		SceneManager.LoadScene("Menu");
 	}
+
+    public void saveTime(int id)
+    {
+        timer t = FindObjectOfType<timer>();
+        TimeSpan time = t.timeElapsed;
+        string toSave = time.ToString().Substring(3, 9);
+        GameManager gm = (GameManager) FindObjectOfType(typeof(GameManager));
+        if(gm.save.times[id] > (float) time.TotalMilliseconds)
+        {
+            gm.updateScores(id, (float) time.TotalMilliseconds, toSave);
+        }
+
+    }
 
        
 }

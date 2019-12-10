@@ -14,6 +14,8 @@ public class EnemyLook : MonoBehaviour
 
     private int destPoint = 0;
     NavMeshAgent agent;
+    public float origSpeed = 5f;
+    public float chaseSpeed = 8f;
 
     Light flashlight;
     
@@ -56,7 +58,7 @@ public class EnemyLook : MonoBehaviour
         if ((viewAngle >= -60 && viewAngle <= 60) && dist <= 10f)
         {
             agent.SetDestination(player.position);
-            agent.speed = 4f;
+            agent.speed = chaseSpeed;
 
             if (dist <= agent.stoppingDistance)
             {
@@ -68,6 +70,7 @@ public class EnemyLook : MonoBehaviour
         else if(!agent.pathPending && agent.remainingDistance < .5f)
         {
             // if player isnt there
+            agent.speed = origSpeed;
             GoToNextPoint();
 
             flashlight.color = Color.green;
