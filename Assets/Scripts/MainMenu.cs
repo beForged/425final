@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject gameTitle;
     public GameObject cam;
     public GameObject aboutCanvas;
-    public Text about;
+    public GameObject about;
 
     static Animator anim;
 
@@ -40,11 +41,11 @@ public class MainMenu : MonoBehaviour
         int i = 1;
         foreach(string s in save.display)
         {
-
             scores += "Collectible " + i.ToString() + ": " + s + "\n";
             i++;
         }
-        about.text = "This is a project for CMSC425. " +
+        TextMeshProUGUI a = about.GetComponent<TextMeshProUGUI>();
+        a.text = "This is a project for CMSC425. " +
             "The game is made by Richard Yu, Justin Goodman, and Minh Nguyen. " +
             "This is a first-person platformer, similar to Clustertruck, with a black/white style and glowy neon, think Tron, but better." +
             " The goal is to collect everything as fast as possible without dying." +

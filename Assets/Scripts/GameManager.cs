@@ -49,10 +49,11 @@ public class GameManager : MonoBehaviour {
 
     private Save createSaveObject()
     {
-        Save save = new Save();
+        save = new Save();
+        save.times = new float[collectibles.Length];
+        save.display = new string[collectibles.Length];
         for (int i = 0; i < collectibles.Length; i++)
         {
-            save.times = new float[collectibles.Length];
             save.times[i] = float.MaxValue;
             save.display[i] = "Not yet set";
         }
