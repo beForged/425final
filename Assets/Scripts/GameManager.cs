@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < collectibles.Length; i++)
         {
             save.times = new float[collectibles.Length];
-            save.times[i] = 0f;
+            save.times[i] = float.MaxValue;
+            save.display[i] = "Not yet set";
         }
         return save;
     }
