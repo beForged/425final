@@ -25,6 +25,7 @@ public class EnemyLook : MonoBehaviour
     void Awake() {
         points = transform.parent.Find("PatrolPoints");
         player = GameObject.FindWithTag("Player").transform;
+
     }
 
     // Start is called before the first frame update
@@ -52,11 +53,12 @@ public class EnemyLook : MonoBehaviour
         destPoint = (destPoint + 1) % points.childCount;
     }
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         float dist = Vector3.Distance(player.position, transform.position);
         Vector3 targetDirection = player.position - transform.position;
         float viewAngle = Vector3.Angle(targetDirection, transform.forward);
+        //bool ischasing = false;
         // if player is visible to agent
         // maybe if the player makes sound or gets in close but not too close they turn and face player?
         if ((viewAngle >= -60 && viewAngle <= 60) && dist <= 10f)
@@ -69,6 +71,7 @@ public class EnemyLook : MonoBehaviour
             {
                 face(player);
             }
+            //ischasing = true;
 
             flashlight.color = Color.red; // might be cool to make it such that the player is "shot" or something only when the flashlight hits them
         }
@@ -81,6 +84,18 @@ public class EnemyLook : MonoBehaviour
 
             flashlight.color = Color.green;
         }
+        /*
+        Vector3 a = agent.destination - transform.position;
+        if (Vector3.Angle(a, agent.transform.forward) > 15 && !ischasing)
+        {
+            agent.speed = .1f;
+            face(points.GetChild(destPoint));
+        }
+        else if(!ischasing)
+        {
+            agent.speed = origSpeed;
+        }
+        */
     }
 
     void face(Transform target)
