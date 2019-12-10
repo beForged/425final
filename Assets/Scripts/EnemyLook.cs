@@ -11,6 +11,9 @@ public class EnemyLook : MonoBehaviour
     public float gazeRadius = 1; // radians?
     private Transform points;
     private Transform player;
+    Animator anim;
+    public GameObject model;
+
 
     private int destPoint = 0;
     NavMeshAgent agent;
@@ -27,6 +30,7 @@ public class EnemyLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = model.GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
 
         agent.autoBraking = false;
@@ -59,6 +63,7 @@ public class EnemyLook : MonoBehaviour
         {
             agent.SetDestination(player.position);
             agent.speed = chaseSpeed;
+            anim.SetBool("isRunning", true);
 
             if (dist <= agent.stoppingDistance)
             {
@@ -70,6 +75,7 @@ public class EnemyLook : MonoBehaviour
         else if(!agent.pathPending && agent.remainingDistance < .5f)
         {
             // if player isnt there
+            anim.SetBool("isRunning", false);
             agent.speed = origSpeed;
             GoToNextPoint();
 
