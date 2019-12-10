@@ -7591,8 +7591,8 @@ MonoBehaviour:
   jumpHeight: 10
   gravity: 20
   NumJumps: 2
-  footsteps: {fileID: 8300000, guid: cebf40b0dcf429c42b4760af28829441, type: 3}
-  fasterFootsteps: {fileID: 8300000, guid: 1d9d56762b4c02e49bc7f0920bbd93bb, type: 3}
+  footsteps: {fileID: 8300000, guid: b177c6167384b9948bc5f4eb9a26d890, type: 3}
+  fasterFootsteps: {fileID: 8300000, guid: 88358fd6cc6725a43a9894f370dd4ca7, type: 3}
 --- !u!4 &1888018476
 Transform:
   m_ObjectHideFlags: 0
