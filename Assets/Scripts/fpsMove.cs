@@ -33,6 +33,11 @@ public class fpsMove : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(ResetToMenu(.3f));
+        }
         // jumping code
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (cc.isGrounded) {
@@ -120,6 +125,7 @@ public class fpsMove : MonoBehaviour {
         ((GameManager) FindObjectOfType(typeof(GameManager))).snapSwitch("Menu", timeToWait);
 		yield return new WaitForSeconds(timeToWait); // todo any pause or whatever?
         //StartCoroutine(GameObject.FindObjectOfType<Fading>().FadeAndLoadScene(Fading.FadeDirection.Out, "Main"));
+        Cursor.visible = true;
 		SceneManager.LoadScene("Menu");
 	}
 

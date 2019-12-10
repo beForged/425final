@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void Play(string sceneName)
     {
+        Cursor.visible = false;
         StartCoroutine(LoadAsync(sceneName));
         ((GameManager) FindObjectOfType(typeof(GameManager))).snapSwitch(sceneName, 10.0f);
     }

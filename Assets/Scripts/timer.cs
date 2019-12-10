@@ -22,6 +22,10 @@ public class timer : MonoBehaviour
         {
             CanvasTimer.SetActive(true);
         }
+        else
+        {
+            CanvasTimer.SetActive(false);
+        }
         startTime = DateTime.Now;
 
     }
