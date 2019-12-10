@@ -1212,8 +1212,9 @@ MonoBehaviour:
     will travel through light zones slowly. On the other hand, dark zones can be traversed
     faster, but requires more skill to get through.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2dde41233bc4dc04682ce87b0b24dc2e, type: 2}
+  m_sharedMaterial: {fileID: -390625932541638943, guid: 2dde41233bc4dc04682ce87b0b24dc2e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1238,8 +1239,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1284,7 +1285,7 @@ MonoBehaviour:
     spaceCount: 91
     wordCount: 93
     linkCount: 0
-    lineCount: 8
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
