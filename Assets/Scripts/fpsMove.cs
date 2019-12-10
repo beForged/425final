@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class fpsMove : MonoBehaviour {
     public float speed = 10;
@@ -96,6 +99,8 @@ public class fpsMove : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("collectible")) {
             other.gameObject.GetComponent<Collectible>().collect();
+            int id = other.gameObject.GetComponent<Collectible>().id;
+            saveTime(id);
             StartCoroutine(ResetToMenu(1f));
         }
 
@@ -128,6 +133,19 @@ public class fpsMove : MonoBehaviour {
         Cursor.visible = true;
 		SceneManager.LoadScene("Menu");
 	}
+
+    public void saveTime(int id)
+    {
+        timer t = FindObjectOfType<timer>();
+        TimeSpan time = t.timeElapsed;
+        string toSave = time.ToString().Substring(3, 9);
+        GameManager gm = (GameManager) FindObjectOfType(typeof(GameManager));
+        if(gm.save.times[id] > (float) time.TotalMilliseconds)
+        {
+            gm.updateScores(id, (float) time.TotalMilliseconds, toSave);
+        }
+
+    }
 
        
 }
