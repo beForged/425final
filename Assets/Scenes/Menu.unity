@@ -461,6 +461,7 @@ MonoBehaviour:
   gameTitle: {fileID: 917299129}
   cam: {fileID: 689452171}
   aboutCanvas: {fileID: 664537001}
+  about: {fileID: 323361642}
 --- !u!1 &165645463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,8 +1238,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5306,6 +5307,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedrun: 0
   collectibles: 0000000000000000000000000000000000000000
+  save:
+    times: []
+    display: []
   mixer: {fileID: 24100000, guid: a75067965155d4d41b44aa2c13f0970f, type: 2}
 --- !u!1 &1856276010
 GameObject:
