@@ -57,6 +57,13 @@ public class MainMenu : MonoBehaviour
         aboutCanvas.SetActive(true);
     }
 
+    public void ResetHighScore()
+    {
+        GameManager gm = (GameManager)FindObjectOfType(typeof(GameManager));
+        Save save = gm.save;
+        save = gm.createSaveObject();
+    }
+
     public void Settings()
     {
         aboutCanvas.SetActive(false);
