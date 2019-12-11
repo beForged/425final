@@ -62,6 +62,11 @@ public class MainMenu : MonoBehaviour
         GameManager gm = (GameManager)FindObjectOfType(typeof(GameManager));
         Save save = gm.save;
         save = gm.createSaveObject();
+        bool sp = gm.speedrun;
+        gm.speedrun = true;
+        gm.doSave();
+        About();
+        gm.speedrun = sp;
     }
 
     public void Settings()

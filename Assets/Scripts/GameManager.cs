@@ -61,17 +61,21 @@ public class GameManager : MonoBehaviour {
         return save;
     }
 
+    public void doSave() {
+        BinaryFormatter bf = new BinaryFormatter();
+        File.Delete(Application.persistentDataPath + "times.save");
+        FileStream file = File.Create(Application.persistentDataPath + "times.save");
+        bf.Serialize(file, save);
+        file.Close();
+    }
+
     public void updateScores(int id, float time, string disp)
     {
         if (speedrun)
         {
             save.times[id] = time;
             save.display[id] = disp;
-            BinaryFormatter bf = new BinaryFormatter();
-            File.Delete(Application.persistentDataPath + "times.save");
-            FileStream file = File.Create(Application.persistentDataPath + "times.save");
-            bf.Serialize(file, save);
-            file.Close();
+            doSave();
         }
     }
 }
