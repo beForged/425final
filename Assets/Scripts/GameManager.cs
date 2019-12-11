@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private Save createSaveObject()
+    public Save createSaveObject()
     {
         save = new Save();
         save.times = new float[collectibles.Length];
