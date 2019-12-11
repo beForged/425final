@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
+        // singleton pattern
+        if (objs.Length > 1) {
+            Destroy(this.gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
 
         BinaryFormatter bf = new BinaryFormatter();
         if(File.Exists(Application.persistentDataPath + "times.save"))
@@ -27,13 +32,9 @@ public class GameManager : MonoBehaviour {
         {
             save = createSaveObject();
         }
-        // singleton pattern
-        if (objs.Length > 1) {
-            Destroy(this.gameObject);
-        }
-        DontDestroyOnLoad(this.gameObject);
     }
 
+    // for audio
     public void snapSwitch(string sceneName, float time) {
         switch (sceneName) {
             case "Menu":
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private Save createSaveObject()
+    public Save createSaveObject()
     {
         save = new Save();
         save.times = new float[collectibles.Length];
@@ -60,14 +61,21 @@ public class GameManager : MonoBehaviour {
         return save;
     }
 
-    public void updateScores(int id, float time, string disp)
-    {
-        save.times[id] = time;
-        save.display[id] = disp;
+    public void doSave() {
         BinaryFormatter bf = new BinaryFormatter();
         File.Delete(Application.persistentDataPath + "times.save");
         FileStream file = File.Create(Application.persistentDataPath + "times.save");
         bf.Serialize(file, save);
         file.Close();
+    }
+
+    public void updateScores(int id, float time, string disp)
+    {
+        if (speedrun)
+        {
+            save.times[id] = time;
+            save.display[id] = disp;
+            doSave();
+        }
     }
 }

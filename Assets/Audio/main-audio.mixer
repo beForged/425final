@@ -111,6 +111,8 @@ AudioMixerController:
     name: Menu
   - guid: 221d6d5e7d9c8434ab0828901bc2f851
     name: SFX
+  - guid: d167c04ba6164c34497f57954a536ab9
+    name: Collectible
   m_AudioMixerGroupViews:
   - guids:
     - 76298d1658eeb764a82c35cfc30654e7
